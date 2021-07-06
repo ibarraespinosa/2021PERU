@@ -84,14 +84,11 @@ library(gtfs2gps)
 ---
 ## Como calcular las emisiones vehiculares?
 
-$Emision_{contaminante}=\sum_{actividad}(NA_{actividad}*FE_{contaminante,actividad})$
-
-(Pulles and Heslinga, 2010).
+$Emision_{contaminante}=\sum_{actividad}(NA_{actividad}*FE_{contaminante,actividad})$ (Pulles and Heslinga, 2010).
 
 Para calcular las emisiones debemos multiplicar el nivel de actividad por el factor de emision!
 
-### _simple?_
-
+_simple?_
 
 .pull-left[
 ### Nivel de actividad
