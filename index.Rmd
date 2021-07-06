@@ -53,14 +53,16 @@ library(gtfs2gps)
 - Es la **masa** de contaminantes emitida por los vehiculos.
 
 .pull-left[
-![Tubo de escape](https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Diesel-smoke.jpg/290px-Diesel-smoke.jpg)
+.center[
+![Tubo de escape](https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Diesel-smoke.jpg/290px-Diesel-smoke.jpg)]
 ]
 
 .pull-right[
+.center[
 ![Partidas en frio](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Exhaust.jpg/220px-Exhaust.jpg)
 
 ![Tubo de escape](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Automobile_exhaust_gas.jpg/220px-Automobile_exhaust_gas.jpg)
-
+]
 ]
 
 
@@ -209,20 +211,26 @@ aceleracion, nivel de congestion, situacion de trafico, cantidad de combustible,
 ## Mediciones de laboratorio
 [CETESB](https://cetesb.sp.gov.br/veicular/)
 
+.center[
 ![](lab1.jpg)
+]
 
 ---
 ## Mediciones de tunel
 
 [Evolution of Vehicle Emission Factors in a Megacity Affected by Extensive Biofuel Use: Results of Tunnel Measurements in São Paulo, Brazil](https://pubs.acs.org/doi/abs/10.1021/acs.est.1c01006)
-
+.center[
 ![](tunel.jpg)
+
+]
 
 
 ---
 ## Sensoriamento remoto
 
+.center[
 ![](edr.png)
+]
 
 
 Karl Ropkins1*; Timothy H. DeFries2; Francis Pope3; 
@@ -315,7 +323,7 @@ plot(PC_E25_1400["PC_E25_1400_1"],  main ="Vehiculos nuevos Sao Paulo [veh/h]", 
 ]
 
 ---
-# velocidad
+# Factores de expansion y velocidad
 
 
 .pull-left[
@@ -337,9 +345,6 @@ plot(dfspeed["S1"],  main ="Velocidad 00:00 Sao Paulo [km/h]", axes = T, pal = c
 
 ---
 ## Factores de emision
-
-```{r}
-```
 
 
 .pull-left[
@@ -391,26 +396,53 @@ print(E_CO)
 ---
 ## Post-procesamiento
 
-
-.pull-left[
 ```{r, fig.width=6, fig.height=4}
 E_CO_DF <- emis_post(arra = E_CO,  veh = "PC", size = "<1400", fuel = "G",
 pollutant = "CO", by = "veh")
-head(E_CO_DF)
+head(E_CO_DF, 1)
+```
+
+.pull-left[
+
+```{r, fig.width=5, fig.height=3}
+as.data.table(E_CO_DF)[, sum(g), by = hour][, barplot(t(V1), xlab = "horas")]
+```
+]
+
+.pull-right[
+
+```{r, fig.width=5, fig.height=3}
+as.data.table(E_CO_DF)[, sum(g), by = age][, barplot(t(V1), xlab = "edad")]
+```
+
+]
+
+---
+## Post-procesamiento
+
+
+```{r, fig.width=5, fig.height=3}
+E_CO_STREETS <- emis_post(arra = E_CO, pollutant = "CO", by = "streets", net = net)
+```
+
+.pull-left[
+```{r, fig.width=6, fig.height=4}
+plot(E_CO_STREETS["V8"],  main ="Emisiones CO 00:00 Sao Paulo [g/h]", axes = T, pal = cptcity::cpt(colorRampPalette = T, rev = T))
 ```
 
 ]
 
 .pull-right[
 ```{r, fig.width=6, fig.height=4}
-E_CO_STREETS <- emis_post(arra = E_CO, pollutant = "CO", by = "streets", net = net)
-plot(E_CO_STREETS["V8"],  main ="Emisiones CO 00:00 Sao Paulo [g/h]", axes = T, pal = cptcity::cpt(colorRampPalette = T, rev = T))
+plot(E_CO_STREETS["V19"],  main ="Emisiones CO 18:00 Sao Paulo [g/h]", axes = T, pal = cptcity::cpt(colorRampPalette = T, rev = T))
 ```
+
 ]
 
 
+
 ---
-## Fluxo superficial de emisiones
+## Grillas de emisiones
 
 .pull-left[
 ### 1000 m
@@ -440,18 +472,14 @@ for(i in 1:168) E_CO_g500[[na[i]]] <- E_CO_g500[[na[i]]] * units::set_units(1, "
 
 .pull-left[
 ```{r, fig.width=6, fig.height=4}
-ggplot(E_CO_g1000) + geom_sf(aes(fill = as.numeric(V1)), lty = 0) + 
-  scale_fill_gradientn("g/km2/h", colours = cptcity::cpt())+
-  xaringanthemer::theme_xaringan()
+ggplot(E_CO_g1000) + geom_sf(aes(fill = as.numeric(V1)), lty = 0) +   scale_fill_gradientn("g/km2/h", colours = cptcity::cpt())+  xaringanthemer::theme_xaringan()
 ```
 
 ]
 
 .pull-right[
 ```{r, fig.width=6, fig.height=4}
-ggplot(E_CO_g500) + geom_sf(aes(fill = as.numeric(V1)), lty = 0) + 
-  scale_fill_gradientn("g/km2/h", colours = cptcity::cpt())+
-  xaringanthemer::theme_xaringan()
+ggplot(E_CO_g500) + geom_sf(aes(fill = as.numeric(V1)), lty = 0) +   scale_fill_gradientn("g/km2/h", colours = cptcity::cpt())+  xaringanthemer::theme_xaringan()
 ```
 ]
 
@@ -561,6 +589,7 @@ source("main.R")
 <embed type="text/html" src="https://ibarraespinosa.github.io/cursovein/" width="1000" height="600">
 
 ---
+align
 ## Anuncios!
 
 Obervacion: No tengo ninguna beca ☹️
@@ -576,7 +605,10 @@ Obervacion: No tengo ninguna beca ☹️
 
 .pul-right[
 - Curso de vein 5 horas congreso [CASAP VIII](https://www.casap.com.co/en/pre-congress-courses/) https://www.casap.com.co/en/pre-congress-courses/ 
+
+.center[
 ![](curso.jpg)
+]
 ]
 
 ---
