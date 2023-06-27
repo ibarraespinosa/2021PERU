@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>VEIN v0.9: an R package for bottom-up vehicular emissions inventories</title>
+    <title>VEIN v1.0.5: an R package for bottom-up vehicular emissions inventories</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Sergio Ibarra-Espinosa" />
-    <meta name="date" content="2021-07-06" />
+    <meta name="author" content="Sergio Ibarra-Espinosa - GML NOAA / CIRES CU" />
+    <meta name="date" content="2023-06-27" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -12,10 +12,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# VEIN v0.9: an R package for bottom-up vehicular emissions inventories
+.title[
+# VEIN v1.0.5: an R package for bottom-up vehicular emissions inventories
+]
+.subtitle[
 ## <img src='https://raw.githubusercontent.com/atmoschem/vein/master/man/figures/logo.png'>
-### Sergio Ibarra-Espinosa
-### 2021-07-06
+]
+.author[
+### Sergio Ibarra-Espinosa - GML NOAA / CIRES CU
+]
+.date[
+### 2023-06-27
+]
 
 ---
 
@@ -49,6 +57,11 @@ class: center, middle, inverse, title-slide
 ]
 ]
 
+
+---
+## Emisiones vehiculares
+
+![](td.png)
 
 ---
 ## Que son las emisiones vehiculares?
@@ -342,12 +355,11 @@ PC_E25_1400 &lt;- age_ldv(x = net$ldv, name = "PC_E25_1400")
 plot(PC_E25_1400,  main ="Vehiculos Gasolina por edad Sao Paulo [veh/h]")
 ```
 
-&lt;img src="index_files/figure-html/unnamed-chunk-9-1.png" width="100%" /&gt;
+```
+## Weighted mean =  11.17
+```
 
-```
-## 
-## Average =  11.17
-```
+&lt;img src="index_files/figure-html/unnamed-chunk-9-1.png" width="100%" /&gt;
 
 ]
 
@@ -11738,22 +11750,8 @@ source("main.R")
 
 
 .pull-right[
-### Proyectos disponibles
-
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_bu/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_bu_csvgz/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_bu_csv/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_td_chem/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_bu_chem/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_bu_chem_streets/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/sebr_cb05co2/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/amazon2014/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/masp2020/badge.svg)](https://github.com/atmoschem/vein/actions)
-
+![](pro.png)
 ]
-
-- Necesito ayuda para crear mas proyectos para America Latina, Europa, China y Estados Unidos!
-- Tengo todo, menos tiempo
 
 ---
 ## WRF Chemi generado con `vein` y `eixport`
@@ -11779,39 +11777,39 @@ Your browser does not support the video tag.
 ]
 
 ---
-## Que tal con una pagina web?
+## Resultados China nearl real time SPEED
 
-- [https://ibarraespinosa.github.io/cursovein/](https://ibarraespinosa.github.io/cursovein/)
-- [Grupo de google](https://groups.google.com/g/veinmodel)
+&lt;video  width="620" height="440" controls&gt;
+&lt;source src="speed.mp4" type="video/mp4"&gt;
+Your browser does not support the video tag.
+&lt;/video&gt;    
 
-&lt;embed type="text/html" src="https://ibarraespinosa.github.io/cursovein/" width="1000" height="600"&gt;
-
----
-## Anuncios!
-
-Obervacion: No tengo ninguna beca ☹️
-
-.pull-left[
-- Necesito estudiantes interesados en correr **vein** y publicar:
-  - Estudiante de graduacion. Beneficios, aprender R.
-  - Estudiante de Magister. Beneficios, aprender R + Fortran
-  - Estudiante de Doctorado. Beneficios, aprender R + Fortran + Inteligencia Artificial
-- Colaboraciones!
-  - Siempre estoy interesado en colaboraciones!
-]
-
-.pul-right[
-- Curso de vein 5 horas congreso [CASAP VIII](https://www.casap.com.co/en/pre-congress-courses/) https://www.casap.com.co/en/pre-congress-courses/ 
-
-.center[
-![](curso.jpg)
-]
-]
 
 ---
-class: center, middle
+## Resultados China nearl real time VOLUME
 
-![vito!](https://i.imgur.com/wunzEZ6.png)
+&lt;video  width="620" height="440" controls&gt;
+&lt;source src="volume.mp4" type="video/mp4"&gt;
+Your browser does not support the video tag.
+&lt;/video&gt;    
+
+
+---
+## Resultados California
+
+&lt;img src="SPEED.png" width="50%" /&gt;
+
+---
+## Resultados California
+
+&lt;img src="SPEED_HOUR.png" width="50%" /&gt;
+
+
+---
+## Resultados California
+
+
+&lt;img src="emis.png" width="50%" /&gt;
 
 
 ---
@@ -11820,13 +11818,12 @@ class: center, middle
 # Gracias!
 
 links:
-- [Email](mailto:sergio.ibarra@usp.br): "sergio.ibarra@usp.br"
+- [Email](mailto:sergio.ibarra-espinosa@noaa.gov): "sergio.ibarra-espinosa@noaa.gov"
 - [Google Scholar](https://scholar.google.com.br/citations?user=8ohZGHEAAAAJ&amp;hl=pt-BR): https://scholar.google.com.br/citations?user=8ohZGHEAAAAJ&amp;hl=pt-BR
 - [GitHub](https://github.com/ibarraespinosa): "https://github.com/ibarraespinosa"
-- [Twitter](https://twitter.com/SergioIbarraEs1): "https://twitter.com/SergioIbarraEs1"
 - [Researchgate](https://www.researchgate.net/profile/Sergio_Ibarra-Espinosa): "https://www.researchgate.net/profile/Sergio_Ibarra-Espinosa"
 - [ORCID](https://orcid.org/0000-0002-3162-1905): "https://orcid.org/0000-0002-3162-1905"
-- [CV](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&amp;id=K4695619Y4): "http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&amp;id=K4695619Y4"
+- [CV](https://ibarraespinosa.github/): "https://ibarraespinosa.github/"
 - [LinkedIn](https://www.linkedin.com/in/sibarra/): "https://www.linkedin.com/in/sibarra/"
   
     </textarea>
@@ -11878,6 +11875,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

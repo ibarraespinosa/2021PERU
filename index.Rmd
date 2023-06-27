@@ -1,8 +1,8 @@
 ---
-title: "VEIN v0.9: an R package for bottom-up vehicular emissions inventories"
+title: "VEIN v1.0.5: an R package for bottom-up vehicular emissions inventories"
 subtitle: "<img src='https://raw.githubusercontent.com/atmoschem/vein/master/man/figures/logo.png'>"  
 author: 
-  - "Sergio Ibarra-Espinosa"
+  - "Sergio Ibarra-Espinosa - GML NOAA / CIRES CU"
 date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
@@ -32,7 +32,8 @@ knitr::opts_chunk$set(
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
-style_duo_accent_inverse(primary_color = "#035AA6", secondary_color = "#03A696")
+style_duo_accent_inverse(primary_color = "#006747", 
+                         secondary_color = "#cfc493")
 library(ggplot2)
 library(sf)
 library(vein)
@@ -65,6 +66,11 @@ library(gtfs2gps)
 ]
 ]
 
+
+---
+## Emisiones vehiculares
+
+![](td.png)
 
 ---
 ## Que son las emisiones vehiculares?
@@ -306,7 +312,7 @@ plot(net["ps"],  main ="Velocidad de hora punta [km/h]", axes = T, pal = cptcity
 # Vehiculos 
 
 .pull-left[
-```{r, fig.width=6, fig.height=4}
+```{r, fig.width=4, fig.height=8}
 PC_E25_1400 <- age_ldv(x = net$ldv, name = "PC_E25_1400")
 plot(PC_E25_1400,  main ="Vehiculos Gasolina por edad Sao Paulo [veh/h]")
 ```
@@ -549,22 +555,8 @@ source("main.R")
 
 
 .pull-right[
-### Proyectos disponibles
-
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_bu/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_bu_csvgz/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_bu_csv/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_td_chem/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_bu_chem/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/brazil_bu_chem_streets/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/sebr_cb05co2/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/amazon2014/badge.svg)](https://github.com/atmoschem/vein/actions)
-- [![R build status](https://github.com/atmoschem/vein/workflows/masp2020/badge.svg)](https://github.com/atmoschem/vein/actions)
-
+![](pro.png)
 ]
-
-- Necesito ayuda para crear mas proyectos para America Latina, Europa, China y Estados Unidos!
-- Tengo todo, menos tiempo
 
 ---
 ## WRF Chemi generado con `vein` y `eixport`
@@ -590,39 +582,45 @@ Your browser does not support the video tag.
 ]
 
 ---
-## Que tal con una pagina web?
+## Resultados China nearl real time SPEED
 
-- [https://ibarraespinosa.github.io/cursovein/](https://ibarraespinosa.github.io/cursovein/)
-- [Grupo de google](https://groups.google.com/g/veinmodel)
+<video  width="620" height="440" controls>
+<source src="speed.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>    
 
-<embed type="text/html" src="https://ibarraespinosa.github.io/cursovein/" width="1000" height="600">
-
----
-## Anuncios!
-
-Obervacion: No tengo ninguna beca ☹️
-
-.pull-left[
-- Necesito estudiantes interesados en correr **vein** y publicar:
-  - Estudiante de graduacion. Beneficios, aprender R.
-  - Estudiante de Magister. Beneficios, aprender R + Fortran
-  - Estudiante de Doctorado. Beneficios, aprender R + Fortran + Inteligencia Artificial
-- Colaboraciones!
-  - Siempre estoy interesado en colaboraciones!
-]
-
-.pul-right[
-- Curso de vein 5 horas congreso [CASAP VIII](https://www.casap.com.co/en/pre-congress-courses/) https://www.casap.com.co/en/pre-congress-courses/ 
-
-.center[
-![](curso.jpg)
-]
-]
 
 ---
-class: center, middle
+## Resultados China nearl real time VOLUME
 
-![vito!](https://i.imgur.com/wunzEZ6.png)
+<video  width="620" height="440" controls>
+<source src="volume.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>    
+
+
+---
+## Resultados California
+
+```{r,  out.width="50%", echo = F}
+knitr::include_graphics("SPEED.png")
+```
+
+---
+## Resultados California
+
+```{r,  out.width="50%", echo = F}
+knitr::include_graphics("SPEED_HOUR.png")
+```
+
+
+---
+## Resultados California
+
+
+```{r,  out.width="50%", echo = F}
+knitr::include_graphics("emis.png")
+```
 
 
 ---
@@ -631,12 +629,11 @@ class: center, middle
 # Gracias!
 
 links:
-- [Email](mailto:sergio.ibarra@usp.br): "sergio.ibarra@usp.br"
+- [Email](mailto:sergio.ibarra-espinosa@noaa.gov): "sergio.ibarra-espinosa@noaa.gov"
 - [Google Scholar](https://scholar.google.com.br/citations?user=8ohZGHEAAAAJ&hl=pt-BR): https://scholar.google.com.br/citations?user=8ohZGHEAAAAJ&hl=pt-BR
 - [GitHub](https://github.com/ibarraespinosa): "https://github.com/ibarraespinosa"
-- [Twitter](https://twitter.com/SergioIbarraEs1): "https://twitter.com/SergioIbarraEs1"
 - [Researchgate](https://www.researchgate.net/profile/Sergio_Ibarra-Espinosa): "https://www.researchgate.net/profile/Sergio_Ibarra-Espinosa"
 - [ORCID](https://orcid.org/0000-0002-3162-1905): "https://orcid.org/0000-0002-3162-1905"
-- [CV](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K4695619Y4): "http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K4695619Y4"
+- [CV](https://ibarraespinosa.github/): "https://ibarraespinosa.github/"
 - [LinkedIn](https://www.linkedin.com/in/sibarra/): "https://www.linkedin.com/in/sibarra/"
   
